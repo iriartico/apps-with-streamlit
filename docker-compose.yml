@@ -1,0 +1,18 @@
+services:
+  
+  db:
+    image: postgres:16-alpine
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    ports:
+      - "127.0.0.1:5432:5432"
+ 
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_DB: db_digitalmarketing
+      POSTGRES_USER: sysadmin
+      POSTGRES_PASSWORD: sysadmin
+    volumes:
+      - $PWD/database.sql:/docker-entrypoint-initdb.d/database.sql
+      - ./db_data:/var/lib/postgresql/data
