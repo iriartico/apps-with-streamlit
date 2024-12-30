@@ -4,3 +4,5 @@ __pycache__/
 db_data/
 db_data/*
 *.pdf
+video/*
+audio/*
